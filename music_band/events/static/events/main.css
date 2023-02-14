@@ -1,0 +1,425 @@
+body {
+    background: #16161a;
+    color: #333333;
+    margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #fffffe;
+}
+
+p {
+    color: #fffffe;
+}
+
+ul {
+    margin: 0;
+}
+
+/* Home Page Start */
+
+#banner-container {
+    width: 100%;
+    height: 50vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+}
+
+#banner-container img {
+    width: 500%;
+    height: 100%;
+}
+
+
+
+#banner {
+    background-color: #16161a;
+    height: 35vh;
+    width: 100%;
+    padding:0 20px;
+}
+
+.banner-content {
+    text-align: center;
+    padding-top: 10%;
+}
+
+.banner-headline {
+    color: #fffffe;
+}
+
+.banner-paragraph {
+    color: #94a1b2;
+}
+
+.banner-button {
+    background-color: #7f5af0;
+    color: #fffffe;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+#introduction {
+    padding: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#introduction h2 {
+    color: #fffffe;
+}
+
+#introduction p {
+    color: #94a1b2;
+    text-align: center;
+}
+
+/* Home Page End */
+
+
+/* Navbar Start */
+
+.bg-steel {
+    background-color: #7f5af0;
+}
+
+.site-header .navbar-nav .nav-link {
+    color: #fffffe;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+    color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+    font-weight: 500;
+}
+
+.content-section {
+    background: #16161a;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.article-title {
+    color: #fffffe;
+}
+
+a.article-title:hover {
+    color: #72757e;
+    text-decoration: none;
+}
+
+.article-content {
+    white-space: pre-line;
+}
+
+.article-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 16px;
+}
+
+.article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.article-svg {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
+
+.account-img {
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
+
+.account-heading {
+    font-size: 2.5rem;
+}
+
+/* Navbar End */
+
+/* footer Start */
+.footer {
+    clear: both;
+    position: relative;
+    height: 200px;
+    margin-top: -200px;
+}
+
+.footer-background {
+    background-color: #242629;
+    color:#fffffe;
+}
+
+.bottom-page {
+    padding-top:50px;
+}
+/* footer End */
+
+/* About Us Start */
+
+.the-company {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.our-values {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#about-us {
+    padding: 20px;
+}
+
+#about-us h1 {
+    color: #fffffe;
+    text-align: center;
+}
+
+#about-us section {
+    margin: 20px 0;
+}
+
+#about-us h2 {
+    color: #fffffe;
+}
+
+#about-us p {
+    color: #94a1b2;
+}
+
+.staff-member {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding-left: 50px;
+    padding-top: 50px;
+}
+
+
+.staff-member img {
+    width: 200px; 
+    height: 200px; 
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.staff-member h3 {
+    color: #fffffe;
+    margin-bottom: 10px;
+}
+
+.staff-member p {
+    color: #94a1b2;
+    text-align: center;
+}
+
+.our-values {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.value-box {
+    color: #7f5af0;
+    background-color: #242629;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    margin: 20px;
+}
+
+@media (min-width: 768px) {
+    .value-box {
+    width: calc(50% - 40px);
+    }
+}
+
+/* About Us End */
+
+/* Events Page start*/
+
+.event-container {
+    padding-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: left;
+}
+
+.event-card {
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #94a1b2;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 10px #94a1b2;
+}
+
+.event-card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #7f5af0;
+}
+
+.event-card-type {
+    font-size: 16px;
+    color: #94a1b2;
+    margin-bottom: 10px;
+}
+
+.event-card-location {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #94a1b2;
+}
+
+.event-card-date {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #94a1b2;
+}
+
+.event-card-description {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #94a1b2;
+}
+
+.event-card-photo {
+    width: 75%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.event-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.review-container {
+    padding: 10px;
+
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Events Page end */
+
+/* Form Start */
+
+.form-group {
+    color: #94a1b2;
+    align-items: center;
+}
+
+.purple-button {
+    background-color: #7f5af0;
+    color: #fffffe;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.profile-form {
+    padding-top: 100px;
+}
+/* Form End */
+
+/* Contact Us Start */
+
+.banner {
+    position: relative;
+    text-align: center;
+    color: white;
+    background-image: url(IMAGE_URL_HERE);
+    background-size: cover;
+    height: 500px;
+}
+
+.banner img {
+    width: 100%;
+    height: 500px;
+object-fit: cover;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.banner h1 {
+    font-size: 72px;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 36px;
+}
+
+
+
+.contact-container {
+    background-color: #242629;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-info {
+    width: 40%;
+    padding: 20px;
+    text-align: center;
+    padding-top: 100px;
+
+}
+    
+
+.map-container{
+    width: 60%;
+    height: 450px;
+}
+
+/* Contact Us End */

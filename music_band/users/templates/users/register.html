@@ -1,0 +1,20 @@
+{% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
+{% load crispy_forms_tags %}
+{% block content %} <!--Start of unique content -->
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %} <!--Django security token -->
+                <fieldset class="form-group">
+                    <legend style="color:#fffffe;">Join Now</legend> <!--Creates a legend for the form -->
+                    {{ form|crispy }} <!--uses crispy forms to style forms -->
+                </fieldset>
+            <div class="form-group">
+                <button type="submit" class="purple-button">Sign Up</button>
+            </div>    
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">Already have an account? <a class="ml-2" href="{% url 'login' %}">Log in</a></small> <!--Creates a link to the login page -->
+        </div>
+    </div>
+
+{% endblock content %} <!--End of unique content -->

@@ -1,0 +1,17 @@
+{% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
+{% load crispy_forms_tags %}
+{% block content %} <!--Start of unique content -->
+    <div class="content-section">
+        <form method="POST" action="{% url 'events-contact-upload' %}"enctype="multipart/form-data">
+            {% csrf_token %} <!--Django security token -->
+                <fieldset class="form-group">
+                    <legend style="color:#fffffe;">Contact Us</legend> <!--Creates a legend for the form -->
+                    {{ form|crispy }} <!--uses crispy forms to style forms -->
+                </fieldset>
+            <div class="form-group">
+                <button type="submit" class="purple-button">Send Message</button>
+            </div>    
+        </form>
+    </div>
+
+{% endblock content %} <!--End of unique content -->
