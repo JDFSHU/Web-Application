@@ -11,7 +11,7 @@
                     <small class="text-muted">{{ review.date_posted|date:"F d, Y" }}</small>
                     <p class="review-card-rating">Rating: {{ review.event_rating|stars }}</p>
                 </div>
-                <h2><a class="article-title" href="{% url 'review-detail' review.id %}">{{ review.event}}</a></h2>
+                <h2><a class="event-card-title" href="{% url 'review-detail' review.id %}">{{ review.event}}</a></h2>
                 <p class="article-content">{{ review.content }}</p>
             </div>
         </article>

@@ -30,30 +30,36 @@
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <!-- Navbar Left Side -->
                     <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="{% url "events-home" %}">Home</a>
-                    <a class="nav-item nav-link" href="{% url "events-events" %}">Events</a>
-                    <a class="nav-item nav-link" href="{% url "events-reviews" %}">Reviews</a>
-                    <a class="nav-item nav-link" href="{% url "events-about" %}">About Us</a>
-                    <a class="nav-item nav-link" href="{% url "events-contact" %}">Contact Us</a>
+                        <a class="nav-item nav-link" href="{% url "events-home" %}">Home</a>
+                        <a class="nav-item nav-link" href="{% url "events-events" %}">Events</a>
+                        <a class="nav-item nav-link" href="{% url "events-reviews" %}">Reviews</a>
+                        <a class="nav-item nav-link" href="{% url "events-about" %}">About Us</a>
+                        <a class="nav-item nav-link" href="{% url "events-contact" %}">Contact Us</a>
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
+
                     <!-- Code for checking if a user is logged in or not -->
-                    {% if user.is_authenticated and user.username == 'admin' %} <!--Checks if user is logged in and is admin-->
-                    <a class="nav-item nav-link" href="{% url "event-create" %}">Create Event</a>
-                    <a class="nav-item nav-link" href="{% url "review-create" %}">Create Review</a>
-                    <a class="nav-item nav-link" href="{% url "profile" %}">Profile</a>
-                    <a class="nav-item nav-link" href="{% url "logout" %}">Logout</a>
+                        {% if user.is_authenticated and user.username == 'admin' %} <!--Checks if user is logged in and is admin-->
+                            <a class="nav-item nav-link" href="{% url "event-create" %}">Create Event</a>
+                            <a class="nav-item nav-link" href="{% url "review-create" %}">Create Review</a>
+                            <a class="nav-item nav-link" href="{% url "profile" %}">Profile</a>
+                            <a class="nav-item nav-link" href="{% url "logout" %}">Logout</a>
 
-                    {% elif user.is_authenticated %} <!--Checks if user is logged in-->
-                    <a class="nav-item nav-link" href="{% url "review-create" %}">Create Review</a>
-                    <a class="nav-item nav-link" href="{% url "profile" %}">Profile</a>
-                    <a class="nav-item nav-link" href="{% url "logout" %}">Logout</a>
+                        {% elif user.is_authenticated %} <!--Checks if user is logged in-->
+                            <a class="nav-item nav-link" href="{% url "review-create" %}">Create Review</a>
+                            <a class="nav-item nav-link" href="{% url "profile" %}">Profile</a>
+                            <a class="nav-item nav-link" href="{% url "logout" %}">Logout</a>
 
-                    {% else %} <!--If user is not logged in-->
-                    <a class="nav-item nav-link" href="{% url "login" %}">Login</a>
-                    <a class="nav-item nav-link" href="{% url "register" %}">Register</a>
-                    {% endif %}
+                        {% else %} <!--If user is not logged in-->
+                            <a class="nav-item nav-link" href="{% url "login" %}">Login</a>
+                            <a class="nav-item nav-link" href="{% url "register" %}">Register</a>
+                        {% endif %}
+                        <!-- Search form -->
+                        <form class="form-inline d-flex justify-content-center md-form form-sm active-purple-2 mt-2" method="POST" action="{% url 'search-events' %}">
+                            {% csrf_token %}
+                            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search Events" aria-label="Search" name="searched">
+                        </form>
                     </div>
                 </div>
             </div>

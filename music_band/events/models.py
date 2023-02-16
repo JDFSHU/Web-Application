@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
+from PIL import Image
 
 class Event(models.Model):
     name = models.CharField(max_length=100)
@@ -17,6 +18,7 @@ class Event(models.Model):
 
     def get_absolute_url(self): # this method is used to return the url to a specific event detail page
         return reverse('event-detail', kwargs={'pk': self.pk}) # return the url to a specific event detail page
+    
 
 class Review(models.Model):
     author = models.CharField(max_length=100)

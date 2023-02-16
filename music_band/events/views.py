@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin # For the Content Management System (CMS)
 from .forms import ContactForm, ReviewForm 
 from django.contrib.auth.models import User
+from django.core.mail import send_mail # For the Contact Us form
+from django.conf import settings # For the Contact Us form
 from django.contrib import messages # For the Content Management System (CMS)
 
 # These views map to the paths in the events app urls.py file
@@ -27,14 +29,29 @@ def about(request):
 def contact(request):
     return render(request, 'events/contact.html', {'title': 'Contact Us'}) # render the contact.html template when requested
 
-def upload(request): # This view is used to upload contact us form data to the database
+def upload(request): # This view is used to upload contact us form data to the database and sends an email to the admin
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Your message has been sent! Thank you for contacting us, we will get back to you as soon as possible.')
+            send_mail(
+                'New Contact Form Submission',
+                'A new contact form has been submitted on your website.',
+                settings.EMAIL_HOST_USER,
+                [settings.EMAIL_HOST_USER],
+                fail_silently=False,
+            )
         return redirect('events-home')
-    return render(request, 'events/contact_form.html', {'form' : ContactForm}) 
+    return render(request, 'events/contact_form.html', {'form' : ContactForm})
+
+def search_events(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        search_events = Event.objects.filter(name__contains=searched)
+        return render(request, 'events/search_events.html', {'searched' : searched, 'search_events': search_events})
+    else:
+        return render(request, 'events/search_events.html', {'searched' : searched, 'search_events': search_events})
 
 # Start of ADMIN Content Management System (CMS) views to add/update/delete Events
 
@@ -101,7 +118,6 @@ class UserReviewListView(ListView): # This view is used to display all the revie
     def get_queryset(self): 
         user = get_object_or_404(User, username=self.kwargs.get('username')) 
         return Review.objects.filter(author=user).order_by('-date_posted') # orders the reviews by date posted
-
 
 
 class ReviewDetailView(DetailView): # This view is used to display the details of a single review

@@ -1,18 +1,32 @@
 {% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
 {% block content %} <!--Start of unique content -->
-    <h1>Events</h1>
+    <center>
+    <h1> You're Search Results for {{ searched }} </h1> 
 
-    <div class="event-container">
-        {% for event in events %}
+    {% if searched %}
+        </br>
+
+        {% for event in search_events %}
+            </br>
+            <h2> Result {{ forloop.counter }} </h2>
+            </br>
             <div class="event-card">
                 <img class="event-card-photo" src="{{ event.photo.url }}">
-                <a class="event-card-title" href="{% url 'event-detail' event.id %}"><h3 class="event-card-title">{{ event.name }}</h3></a>
+                <a class="event-card-title" href="{% url 'event-detail' event.id %}"><h3>{{ event.name }}</h3></a>
                 <p class="event-card-type">{{ event.event_type }}</p>
                 <p class="event-card-location">{{ event.location }}</p>
                 <p class="event-card-date">{{ event.date }}</p>
                 <p class="event-card-description">{{ event.description }}</p>          
             </div>
         {% endfor %}
-    </div>
+
+    {% else %}
+        <h2> No results found </h2> 
+
+    {% endif %}
+
+    
+
+    </center>
 
 {% endblock content %} <!--End of unique content -->

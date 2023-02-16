@@ -25,4 +25,6 @@ urlpatterns = [
 
     path('contact/', views.contact, name='events-contact'), # 'contact/' maps to the contact us page
     path('contact/upload', views.upload, name='events-contact-upload'),
+
+    path('search/', views.search_events, name='search-events'), # 'search/' maps to the search page
 ]
