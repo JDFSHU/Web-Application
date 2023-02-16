@@ -44,6 +44,7 @@ ul {
 .banner-content {
     text-align: center;
     padding-top: 10%;
+    margin-bottom: 40px;
 }
 
 .banner-headline {
@@ -338,6 +339,18 @@ a.article-title:hover {
 
 /* Events Page end */
 
+/* Events detail page Start */
+
+.review-button {
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+
+}
+
+
+/* Events detail page End */
+
 /* Form Start */
 
 .form-group {
@@ -423,3 +436,23 @@ object-fit: cover;
 }
 
 /* Contact Us End */
+
+
+.pagination-button {
+    background-color: #242629; 
+    color: #fffffe; 
+    border: 2px solid #7f5af0;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.pagination-button:hover {
+    background-color: #7f5af0;
+    color: #fffffe;
+}

@@ -9,10 +9,10 @@
                     {{ form|crispy }} <!--uses crispy forms to style forms -->
                 </fieldset>
             <div class="form-group">
-                <button type="submit" class="purple-button">Login</button>
+                <button type="submit" class="pagination-button">Login</button>
             </div>
             <div class="border-top pt-3">
-                <small class="text-muted">Don't have an account?<a class="ml-2" href="{% url 'register' %}">Sign Up Here</a></small> <!--Creates a link to the login page -->
+                <small class="text-muted">Don't have an account?<a class="ml-2 pagination-button" href="{% url 'register' %}">Sign Up Here</a></small> <!--Creates a link to the login page -->
             </div>
         </form>
     </div>

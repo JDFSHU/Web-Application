@@ -2,19 +2,16 @@
 {% load crispy_forms_tags %}
 {% block content %} <!--Start of unique content -->
     <div class="content-section">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %} <!--Django security token -->
                 <fieldset class="form-group">
-                    <legend style="color:#fffffe;">Join Now</legend> <!--Creates a legend for the form -->
+                    <legend style="color:#fffffe;">Reviews</legend> <!--Creates a legend for the form -->
                     {{ form|crispy }} <!--uses crispy forms to style forms -->
                 </fieldset>
             <div class="form-group">
-                <button type="submit" class="pagination-button">Sign Up</button>
+                <button type="submit" class="purple-button">Create Review</button>
             </div>    
         </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">Already have an account? <a class="pagination-button" href="{% url 'login' %}">Log in</a></small> <!--Creates a link to the login page -->
-        </div>
     </div>
 
 {% endblock content %} <!--End of unique content -->

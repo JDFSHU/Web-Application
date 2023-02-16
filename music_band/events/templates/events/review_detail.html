@@ -1,0 +1,24 @@
+{% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
+{% load rating_stars %}
+{% block content %} <!--Start of unique content -->
+
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ object.author }}</a>
+                <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+                {% if user.username == object.author %}
+                <div>
+                    <a class="btn btn-outline-secondary btn-sm mt-1 mb-1" href="{% url 'review-update' object.id %}">Update</a>
+                    <a class="btn btn-outline-danger btn-sm mt-1 mb-1" href="{% url 'review-delete' object.id %}">Delete</a>
+                </div>
+                {% endif %}
+                <p class="review-card-rating">Rating: {{ object.event_rating|stars }}</p>
+            </div>
+            <h2 class="article-title">{{ object.event}}</h2>
+            <p class="article-content">{{ object.content }}</p>
+        </div>
+    </article>
+
+
+{% endblock content %} <!--End of unique content -->

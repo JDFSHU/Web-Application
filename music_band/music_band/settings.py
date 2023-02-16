@@ -133,3 +133,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4' # this is the template pack that will be use
 
 LOGIN_REDIRECT_URL = 'events-home' # this is the page that the user will be redirected to after logging in
 LOGIN_URL = 'login' # this is the page that the user will be redirected to if they try to access a page that requires login
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # sets the email backend to the console
+EMAIL_HOST = 'smtp.gmail.com' # sets the email host to gmail
+EMAIL_PORT = 587 # sets the email port to 587
+EMAIL_USE_TLS = True # sets the email to use TLS
+
+# below code will need changing for the showcase as won't be able to use environment variables on university computers
+EMAIL_HOST_USER = os.environ.get('email_host') # sets the email host user to the email address by getting the email address from the environment variables
+EMAIL_HOST_PASSWORD = os.environ.get('email_pass') # sets the email host password to the email password by getting the email password from the environment variables

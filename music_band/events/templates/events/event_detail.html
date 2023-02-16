@@ -17,23 +17,13 @@
                 <a class="btn btn-outline-danger btn-sm mt-1 mb-1" href="{% url 'event-delete' object.id %}">Delete</a>
             </div>
             {% endif %}
-    </div>
-    
-    <div class="review-container">
-        <h2>User Reviews:</h2>
-        {% for review in event.review_set.all %}
-            <div class="review-card">
-                <p>____________________________________________________________________</p>
-                <p class="review-card-author">Author: {{ review.author }}</p>
-                <p class="review-card-rating">Rating: {{ review.event_rating|stars }}</p>
-                <p class="review-card-content">Review: {{ review.content }}</p>
-                <p class="review-card-date">Date: {{ review.date_posted }}</p>
-                <p>____________________________________________________________________</p>
-            </div>
-        {% endfor %}
-    </div>
-            
         </div>
+    </div>
+
+    <div class="banner-content">
+        <h1 class="banner-headline">Music Band Events</h1>
+        <p class="banner-paragraph">We'd love to hear your review of the event!</p>
+        <a href="{% url "review-create" %}" class="banner-button">Leave a Review</a>
     </div>
 
 {% endblock content %} <!--End of unique content -->

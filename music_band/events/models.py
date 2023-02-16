@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.core.validators import MinValueValidator, MaxValueValidator
-
+from django.conf import settings
 
 class Event(models.Model):
     name = models.CharField(max_length=100)
@@ -24,9 +24,14 @@ class Review(models.Model):
     content = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.author
+    
+    def get_absolute_url(self):
+        return reverse("review-detail", kwargs={"pk": self.pk})
+    
 
 
 class ContactFormData(models.Model):

@@ -32,6 +32,7 @@
                     <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="{% url "events-home" %}">Home</a>
                     <a class="nav-item nav-link" href="{% url "events-events" %}">Events</a>
+                    <a class="nav-item nav-link" href="{% url "events-reviews" %}">Reviews</a>
                     <a class="nav-item nav-link" href="{% url "events-about" %}">About Us</a>
                     <a class="nav-item nav-link" href="{% url "events-contact" %}">Contact Us</a>
                     </div>
@@ -40,10 +41,12 @@
                     <!-- Code for checking if a user is logged in or not -->
                     {% if user.is_authenticated and user.username == 'admin' %} <!--Checks if user is logged in and is admin-->
                     <a class="nav-item nav-link" href="{% url "event-create" %}">Create Event</a>
+                    <a class="nav-item nav-link" href="{% url "review-create" %}">Create Review</a>
                     <a class="nav-item nav-link" href="{% url "profile" %}">Profile</a>
                     <a class="nav-item nav-link" href="{% url "logout" %}">Logout</a>
 
                     {% elif user.is_authenticated %} <!--Checks if user is logged in-->
+                    <a class="nav-item nav-link" href="{% url "review-create" %}">Create Review</a>
                     <a class="nav-item nav-link" href="{% url "profile" %}">Profile</a>
                     <a class="nav-item nav-link" href="{% url "logout" %}">Logout</a>
 
