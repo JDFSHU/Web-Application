@@ -16,6 +16,11 @@ ul {
     margin: 0;
 }
 
+
+.margin-box {
+    margin-top: 20px;
+}
+
 /* Home Page Start */
 
 #banner-container {
@@ -31,8 +36,6 @@ ul {
     width: 500%;
     height: 100%;
 }
-
-
 
 #banner {
     background-color: #16161a;
@@ -80,6 +83,21 @@ ul {
     color: #94a1b2;
     text-align: center;
 }
+.home-content {
+    display: block;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 40%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.home-container {
+    width: 40%;
+    padding: 20px;
+    text-align: center;
+    padding-top: 150px;
+}
 
 /* Home Page End */
 
@@ -103,12 +121,12 @@ ul {
 }
 
 .content-section {
-    background: #16161a;
+    background: #242629;
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
     margin-bottom: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 
 .article-title {
@@ -174,7 +192,7 @@ a.article-title:hover {
 }
 
 .bottom-page {
-    padding-top:50px;
+    padding-top:100px;
 }
 /* footer End */
 
@@ -244,6 +262,7 @@ a.article-title:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: -125px;
 }
 
 .value-box {
@@ -372,11 +391,11 @@ a.article-title:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70vh;
 }
 
 .profile-form {
-    padding-top: 100px;
+    padding-top: 50px;
+    justify-content: center;
 }
 /* Form End */
 
@@ -419,6 +438,7 @@ object-fit: cover;
     background-color: #242629;
     display: flex;
     justify-content: space-between;
+    margin-top: 20px;
 }
 
 .contact-info {
@@ -457,10 +477,47 @@ object-fit: cover;
     color: #fffffe;
 }
 
-.active-purple-2 input.form-control[type=text]:focus:not([readonly]) {
-    border-bottom: 1px solid #ce93d8;
-    box-shadow: 0 1px 0 0 #ce93d8;
+.current-pagination-button {
+    background-color: #7f5af0; 
+    color: #fffffe; 
+    border: 2px solid #242629;
+    padding: 9px 18px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
 }
-.active-purple .fa, .active-purple-2 .fa {
-    color: #ce93d8;
+
+.current-pagination-button:hover {
+    background-color: #7f5af0;
+    color: #fffffe;
 }
+
+
+/* Event Detail Start */
+
+.event-detail-title {
+    color: #7f5af0;
+}
+
+.event-detail {
+    background-color: #242629;
+    align-items: left;
+    
+}
+
+.review-content {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+
+/* Event Detail End */

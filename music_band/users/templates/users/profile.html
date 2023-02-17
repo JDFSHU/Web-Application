@@ -11,6 +11,7 @@
                 <p class="text-secondary">{{ user.email }}</p>
             </div>
         </div>
+        
         <div class="profile-form">
             <form method="POST" enctype="multipart/form-data"> <!-- ensures form data is saved in the background -->
                 {% csrf_token %} <!--Django security token -->
@@ -22,10 +23,10 @@
                     </fieldset>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="purple-button">Update</button>
+                    <button type="submit" class="pagination-button">Update</button>
                 </div>
             </form>
-    
+        </div>
     </div>
 
 {% endblock content %} <!--End of unique content -->

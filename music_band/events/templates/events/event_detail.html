@@ -2,7 +2,10 @@
 {% load rating_stars %}
 {% block content %} <!--Start of unique content -->
 
-    <div class="event-detail-container">
+    <div class="banner">
+        <img src="/media/imgs/event-detail.jpg" alt="Contact Page Banner">
+    </div>
+    <div class="contact-container">
         <div class="event-card">
             <img class="event-card-photo" src="{{ object.photo.url }}">
             <h3 class="event-card-title">{{ object.name }}</h3>
@@ -17,13 +20,17 @@
                 <a class="btn btn-outline-danger btn-sm mt-1 mb-1" href="{% url 'event-delete' object.id %}">Delete</a>
             </div>
             {% endif %}
+            
+        </div>
+
+        <div class="review-content">
+            <h1 class="banner-headline">Music Band Events</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            
+            <p class="banner-paragraph">We'd love to hear your review of the event!</p>
+            <a href="{% url "review-create" %}" class="pagination-button">Leave a Review</a>
         </div>
     </div>
-
-    <div class="banner-content">
-        <h1 class="banner-headline">Music Band Events</h1>
-        <p class="banner-paragraph">We'd love to hear your review of the event!</p>
-        <a href="{% url "review-create" %}" class="banner-button">Leave a Review</a>
-    </div>
-
 {% endblock content %} <!--End of unique content -->

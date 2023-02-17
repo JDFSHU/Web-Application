@@ -1,6 +1,13 @@
 {% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
 {% block content %} <!--Start of unique content -->
-    <h1>Events</h1>
+    <div class="banner">
+        <img src="/media/imgs/events-page.jpg" alt="Contact Page Banner">
+        <div class="banner-text">
+            <h1>Events</h1>
+            <p>Come and See Daily Events from Music Band</p>
+        </div>
+    </div>    
+
 
     <div class="event-container">
         {% for event in events %}

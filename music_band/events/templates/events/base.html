@@ -2,6 +2,8 @@
 <!doctype html>
 <html lang="en">
 
+<!--All user passwords = %Pa55w0rd -->
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,6 +19,8 @@
     {% else %}
         <title>Music Band</title>
     {% endif %}
+
+    <link rel="icon" type="image/x-icon" href="/media/icon/favicon-16x16.png">
 </head>
 
 <body>
@@ -82,17 +86,65 @@
 
     <div class="bottom-page"></div>
 
-    <!-- Footer -->
-<!--
-    <div class="footer">
-    <footer class="text-center text-white" style="background-color: #242629;">
+    <div class="container my-5">
+        <footer class="text-center text-white" style="background-color: #242629">
+        <div class="container">
+            <section class="mt-5">
+            <div class="row text-center d-flex justify-content-center pt-5">
+                <div class="col-md-2">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="{% url "events-home" %}" class="text-white">Home</a>
+                </h6>
+                </div>
+                <div class="col-md-2">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="{% url "events-events" %}" class="text-white">Events</a>
+                </h6>
+                </div>
+                <div class="col-md-2">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="{% url "events-reviews" %}" class="text-white">Reviews</a>
+                </h6>
+                </div>
+                <div class="col-md-2">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="{% url "events-about" %}" class="text-white">About Us</a>
+                </h6>
+                </div>
+                <div class="col-md-2">
+                <h6 class="text-uppercase font-weight-bold">
+                    <a href="{% url "events-contact" %}" class="text-white">Contact Us</a>
+                </h6>
+                </div>
+            </div>
+            </section>
+    
+            <hr class="my-5" />
+            <section class="mb-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                    distinctio earum repellat quaerat voluptatibus placeat nam,
+                    commodi optio pariatur est quia magnam eum harum corrupti
+                    dicta, aliquam sequi voluptate quas.
+                </p>
+                </div>
+            </div>
+            </section>
 
-        <div class="footer-background">© 2023 Copyright: <a class="footer-background" href="{% url "events-home" %}">https://www.Music-Band.co.uk</a>
+            <section class="text-center mb-5">
+            <a href="https://www.facebook.com" class="text-white me-4">Facebook</a>
+            <a href="https://www.twitter.com" class="text-white me-4">Twitter</a>
+            <a href="https://www.instagram.com" class="text-white me-4">Instagram</a>
+            <a href="https://www.linkedin.com" class="text-white me-4">LinkedIn</a>
+            </section>
         </div>
 
-    </footer>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">© 2023 Copyright:<a style="color: #7f5af0;" href="http://127.0.0.1:8000/"> Music-Band.co.uk</a></div>
+        </footer>
     </div>
--->
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

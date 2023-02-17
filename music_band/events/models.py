@@ -11,7 +11,7 @@ class Event(models.Model):
     location = models.CharField(max_length=100)
     date = models.DateTimeField()
     description = models.TextField()
-    photo = models.ImageField(upload_to='')
+    photo = models.ImageField(upload_to='imgs')
 
     def __str__(self):
         return self.name

@@ -1,20 +1,29 @@
 {% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
 {% load rating_stars %}
 {% block content %} <!--Start of unique content -->
-    <h1>Reviews</h1>
+
+	<div class="banner">
+		<img src="/media/imgs/reviews-page.jpg" alt="Contact Page Banner">
+		<div class="banner-text">
+			<h1>Reviews</h1>
+			<p>Check Out All The Reviews</p>
+		</div>
+	</div>    
 
     {% for review in reviews %}
-        <article class="media content-section">
-            <div class="media-body">
-                <div class="article-metadata">
-                    <a class="mr-2" style="color: #7f5af0;" href="{% url 'user-reviews' review.author %}">{{ review.author }}</a>
-                    <small class="text-muted">{{ review.date_posted|date:"F d, Y" }}</small>
-                    <p class="review-card-rating">Rating: {{ review.event_rating|stars }}</p>
-                </div>
-                <h2><a class="event-card-title" href="{% url 'review-detail' review.id %}">{{ review.event}}</a></h2>
-                <p class="article-content">{{ review.content }}</p>
-            </div>
-        </article>
+		<div class="margin-box">
+			<article class="media content-section">
+				<div class="media-body">
+					<div class="article-metadata">
+						<a class="mr-2" style="color: #7f5af0;" href="{% url 'user-reviews' review.author %}">{{ review.author }}</a>
+						<small class="text-muted">{{ review.date_posted|date:"F d, Y" }}</small>
+						<p class="review-card-rating">Rating: {{ review.event_rating|stars }}</p>
+					</div>
+					<h2><a class="event-card-title" href="{% url 'review-detail' review.id %}">{{ review.event}}</a></h2>
+					<p class="article-content">{{ review.content }}</p>
+				</div>
+			</article>
+		</div>
     {% endfor %}
     
 <!-- Pagination Start -->
@@ -27,7 +36,7 @@
 
 	{% for num in page_obj.paginator.page_range %}
 		{% if page_obj.number == num %}
-			<a class="pagination-button" href="?page={{ num }}">{{ num }}</a>
+			<a class="current-pagination-button" href="?page={{ num }}">{{ num }}</a>
 		{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
 			<a class="pagination-button" href="?page={{ num }}">{{ num }}</a>
 		{% endif %}
@@ -40,4 +49,5 @@
 
 {% endif %}
 <!-- Pagination End -->
+
 {% endblock content %} <!--End of unique content -->
