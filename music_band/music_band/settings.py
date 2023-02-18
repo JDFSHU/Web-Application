@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'crispy_forms', # allows django to find the crispy_forms app
+    "crispy_bootstrap4", # allows django to find the crispy_bootstrap4 app
     'users.apps.UsersConfig', # allows django to find the users app
     'events.apps.EventsConfig', # allows django to find the events app
     'django.contrib.admin',
@@ -130,6 +131,7 @@ MEDIA_URL = '/media/' # this is the url that will be used to access the media fi
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4' # this is the template pack that will be used by crispy forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4" # this is the template pack that will be used by crispy forms
 
 LOGIN_REDIRECT_URL = 'events-home' # this is the page that the user will be redirected to after logging in
 LOGIN_URL = 'login' # this is the page that the user will be redirected to if they try to access a page that requires login

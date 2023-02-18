@@ -8,7 +8,12 @@
 			<h1>Reviews</h1>
 			<p>Check Out All The Reviews</p>
 		</div>
-	</div>    
+	</div>
+
+	<div class="review-content">		
+		<p class="banner-paragraph">We'd love to hear your review of the event!</p>
+		<a href="{% url "review-create" %}" class="pagination-button">Leave a Review</a>
+	</div>
 
     {% for review in reviews %}
 		<div class="margin-box">

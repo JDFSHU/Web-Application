@@ -10,24 +10,23 @@ from django.contrib import messages # For the Content Management System (CMS)
 
 # These views map to the paths in the events app urls.py file
 def home(request):
-    return render(request, 'events/home.html', {'title': 'Home'}) # render the home.html template when requested
+    return render(request, 'events/home.html') # render the home.html template when requested
 
 def events(request):
     context = {
         'events': Event.objects.all(),
-        'title': 'Events'
     }
     return render(request, 'events/events.html', context) # render the events.html template when requested
 
 def reviews(request):
-    return render(request, 'events/reviews.html', {'title': 'Reviews'}) # render the reviews.html template when requested
+    return render(request, 'events/reviews.html') # render the reviews.html template when requested
 
 
 def about(request):
-    return render(request, 'events/about.html', {'title': 'About Us'}) # render the about.html template when requested
+    return render(request, 'events/about.html') # render the about.html template when requested
 
 def contact(request):
-    return render(request, 'events/contact.html', {'title': 'Contact Us'}) # render the contact.html template when requested
+    return render(request, 'events/contact.html') # render the contact.html template when requested
 
 def upload(request): # This view is used to upload contact us form data to the database and sends an email to the admin
     if request.method == 'POST':

@@ -1,5 +1,6 @@
 {% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
 {% block content %} <!--Start of unique content -->
+
     <div class="content-section">
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %} <!--Django security token -->

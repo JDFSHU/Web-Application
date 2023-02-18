@@ -5,22 +5,14 @@
 <!--All user passwords = %Pa55w0rd -->
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'events/main.css' %}">
-    {% if title %}
-        <title>Music Band - {{ title }}</title>
-    {% else %}
-        <title>Music Band</title>
-    {% endif %}
-
     <link rel="icon" type="image/x-icon" href="/media/icon/favicon-16x16.png">
+
+    <title>Music Band</title>
 </head>
 
 <body>
@@ -40,25 +32,24 @@
                         <a class="nav-item nav-link" href="{% url "events-about" %}">About Us</a>
                         <a class="nav-item nav-link" href="{% url "events-contact" %}">Contact Us</a>
                     </div>
+
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
-
                     <!-- Code for checking if a user is logged in or not -->
                         {% if user.is_authenticated and user.username == 'admin' %} <!--Checks if user is logged in and is admin-->
                             <a class="nav-item nav-link" href="{% url "event-create" %}">Create Event</a>
                             <a class="nav-item nav-link" href="{% url "review-create" %}">Create Review</a>
                             <a class="nav-item nav-link" href="{% url "profile" %}">Profile</a>
                             <a class="nav-item nav-link" href="{% url "logout" %}">Logout</a>
-
                         {% elif user.is_authenticated %} <!--Checks if user is logged in-->
                             <a class="nav-item nav-link" href="{% url "review-create" %}">Create Review</a>
                             <a class="nav-item nav-link" href="{% url "profile" %}">Profile</a>
                             <a class="nav-item nav-link" href="{% url "logout" %}">Logout</a>
-
                         {% else %} <!--If user is not logged in-->
                             <a class="nav-item nav-link" href="{% url "login" %}">Login</a>
                             <a class="nav-item nav-link" href="{% url "register" %}">Register</a>
                         {% endif %}
+
                         <!-- Search form -->
                         <form class="form-inline d-flex justify-content-center md-form form-sm active-purple-2 mt-2" method="POST" action="{% url 'search-events' %}">
                             {% csrf_token %}
@@ -72,7 +63,7 @@
     
     <main role="main" class="container">
         <!-- Displays messages -->
-        {% if messages %} <!--Displays messages from users/views.py-->
+        {% if messages %} 
             {% for message in messages %}
                 <div class="alert alert-{{ message.tags }}" role="alert">
                     {{ message }}
@@ -82,6 +73,7 @@
         
         <!-- Displays Unique Page Content -->
         {% block content %}{% endblock %}
+
     </main>
 
     <div class="bottom-page"></div>
@@ -144,10 +136,7 @@
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">© 2023 Copyright:<a style="color: #7f5af0;" href="http://127.0.0.1:8000/"> Music-Band.co.uk</a></div>
         </footer>
     </div>
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

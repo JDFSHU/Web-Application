@@ -1,9 +1,10 @@
 {% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
-
 {% block content %} <!--Start of unique content -->
+
     <h1>You are now Logged Out</h1>
     <p>Thank you for using our site. We hope you enjoyed your stay.</p>
     <small class="text-muted">
         <a href="{% url 'login' %}" class="pagination-button">Log In</a>
     </small>
+
 {% endblock content %} <!--End of unique content -->

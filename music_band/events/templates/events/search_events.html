@@ -1,5 +1,6 @@
 {% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
 {% block content %} <!--Start of unique content -->
+
     <center>
     <h1> You're Search Results for {{ searched }} </h1> 
 
@@ -19,14 +20,9 @@
                 <p class="event-card-description">{{ event.description }}</p>          
             </div>
         {% endfor %}
-
     {% else %}
         <h2> No results found </h2> 
-
     {% endif %}
-
-    
-
     </center>
 
 {% endblock content %} <!--End of unique content -->
