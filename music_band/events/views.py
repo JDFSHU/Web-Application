@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Event, Review
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView # For the Content Management System (CMS)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin # For the Content Management System (CMS)
-from .forms import ContactForm, ReviewForm 
+from .forms import ContactForm, ReviewForm, EventForm 
 from django.contrib.auth.models import User
 from django.core.mail import send_mail # For the Contact Us form
 from django.conf import settings # For the Contact Us form
@@ -65,7 +65,7 @@ class EventsDetailView(DetailView): # This view is used to display the details o
 
 class EventsCreateView(LoginRequiredMixin, CreateView): # LoginRequiredMixin is used to prevent users from creating events without logging in
     model = Event # Tells the view which model to query
-    fields = ['photo', 'name', 'event_type', 'location', 'date', 'description'] # fields that will be displayed in the form
+    form_class = EventForm
 
     # checks to see if the user is admin or not, if not they are returned to the homepage, only the admin can create events
     def dispatch(self, request, *args, **kwargs):

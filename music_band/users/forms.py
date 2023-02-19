@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .models import Profile
+from django.forms.widgets import DateTimeInput
 
 # this class inherits from UserCreationForm and adds an additional field for email
 class RegistrationForm(UserCreationForm):
@@ -21,6 +22,8 @@ class UserUpdateForm(forms.ModelForm):
 
 # Creating a form that updates our profile model
 class ProfileUpdateForm(forms.ModelForm):
+    dob = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}))
+
     class Meta:
         model = Profile
         fields = [ 'full_name', 'dob', 'city_town', 'country', 'photo_of_user']
