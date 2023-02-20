@@ -3,9 +3,10 @@
 
     <center>
     <h1> You're Search Results for {{ searched }} </h1> 
+    </br>
+    <h2> Total Search Results = {{ search_events|length }} <h2>
 
     {% if searched %}
-        </br>
 
         {% for event in search_events %}
             </br>

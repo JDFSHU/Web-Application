@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail # For the Contact Us form
 from django.conf import settings # For the Contact Us form
 from django.contrib import messages # For the Content Management System (CMS)
+from django.db.models import Q
+
 
 # These views map to the paths in the events app urls.py file
 def home(request):
@@ -44,13 +46,26 @@ def upload(request): # This view is used to upload contact us form data to the d
         return redirect('events-home')
     return render(request, 'events/contact_form.html', {'form' : ContactForm})
 
+# This view is used to request the search_events template and return the search results
 def search_events(request):
     if request.method == 'POST':
         searched = request.POST['searched']
-        search_events = Event.objects.filter(name__contains=searched)
-        return render(request, 'events/search_events.html', {'searched' : searched, 'search_events': search_events})
+        search_events = Event.objects.filter(
+            Q(name__icontains=searched) | 
+            Q(location__icontains=searched) | 
+            Q(event_type__icontains=searched)
+        )
+        return render(request, 'events/search_events.html', {'searched': searched, 'search_events': search_events})
     else:
-        return render(request, 'events/search_events.html', {'searched' : searched, 'search_events': search_events})
+        return render(request, 'events/search_events.html', {'searched': '', 'search_events': []})
+
+
+def not_admin(request): # This view is for the not_admin rights error page
+    return render(request, 'events/not_admin.html') # render the not_admin.html template when requested
+
+def not_author(request): # This view is for the not_author rights error page
+    return render(request, 'events/not_author.html') # render the not_admin.html template when requested
+
 
 # Start of ADMIN Content Management System (CMS) views to add/update/delete Events
 
@@ -63,15 +78,20 @@ class EventsDetailView(DetailView): # This view is used to display the details o
     model = Event # Tells the view which model to query
 
 
-class EventsCreateView(LoginRequiredMixin, CreateView): # LoginRequiredMixin is used to prevent users from creating events without logging in
+class EventsCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView): # LoginRequiredMixin is used to prevent users from creating events without logging in
     model = Event # Tells the view which model to query
     form_class = EventForm
 
-    # checks to see if the user is admin or not, if not they are returned to the homepage, only the admin can create events
-    def dispatch(self, request, *args, **kwargs):
-        if self.request.user.username != 'admin':
-            return redirect('events-home') # redirect to home page
-        return super().dispatch(request, *args, **kwargs)
+    # test_func part of UserPassesTestMixin, checks to see if the user is admin or not, if not 403 forbidden error is returned
+    def test_func(self):
+        if self.request.user.username == 'admin':
+            return True
+        return False
+    
+    def handle_no_permission(self): # redirects to the not_admin page if the test_func returns false
+        return redirect('not-admin')
+    
+
 
 class EventsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView): # LoginRequiredMixin is used to prevent users from updating events without logging in
     model = Event # Tells the view which model to query
@@ -82,20 +102,29 @@ class EventsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView): # L
         if self.request.user.username == 'admin':
             form.instance.user = self.request.user
             return super().form_valid(form)
-    
+        
+    # test_func part of UserPassesTestMixin, checks to see if the user is admin or not, if not 403 forbidden error is returned
     def test_func(self):
         if self.request.user.username == 'admin':
             return True
         return False
+    
+    def handle_no_permission(self): # redirects to the not_admin page if the test_func returns false
+        return redirect('not-admin')
+
 
 class EventsDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Event # Tells the view which model to query
     success_url = '/events/' # redirect to the events page after deleting an event
 
+    # test_func part of UserPassesTestMixin, checks to see if the user is admin or not, if not 403 forbidden error is returned
     def test_func(self):
         if self.request.user.username == 'admin':
             return True
         return False
+    
+    def handle_no_permission(self): # redirects to the not_admin page if the test_func returns false
+        return redirect('not-admin')
 
 # End of ADMIN Content Management System (CMS) views to add/update/delete Events
 
@@ -145,6 +174,9 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user.username == review.author:
             return True
         return False
+    
+    def handle_no_permission(self): # redirects to the not_author page if the test_func returns false
+        return redirect('not-author')
 
 class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Review # Tells the view which model to query
@@ -155,7 +187,9 @@ class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user.username == review.author:
             return True
         return False
-
+    
+    def handle_no_permission(self): # redirects to the not_author page if the test_func returns false
+        return redirect('not-author')
 
 # End of USER Content Management System (CMS) views to add/update/delete Reviews
 

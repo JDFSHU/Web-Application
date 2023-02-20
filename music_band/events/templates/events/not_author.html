@@ -1,0 +1,9 @@
+{% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
+{% block content %} <!--Start of unique content -->
+    <center>
+        </br>
+        <h1>You cannot change a review that is not your own</h1>
+        </br>
+        <a class="pagination-button" href="{% url 'events-reviews' %}">Back to Reviews</a>
+    </center>
+{% endblock content %} <!--End of unique content -->
