@@ -22,7 +22,7 @@ class UserUpdateForm(forms.ModelForm):
 
 # Creating a form that updates our profile model
 class ProfileUpdateForm(forms.ModelForm):
-    dob = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'datetime-local'}))
+    dob = forms.DateTimeField(widget=DateTimeInput(attrs={'type': 'date'}))
 
     class Meta:
         model = Profile

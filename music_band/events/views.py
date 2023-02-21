@@ -77,7 +77,6 @@ class BuyTicketsView(FormView):
 
     def form_valid(self, form):
         form.instance.event = Event.objects.get(pk=self.kwargs['pk'])
-        form.instance.user = self.request.user
         form.save()
         email = form.instance.email # gets the email from the form
         messages.success(self.request, 'Your tickets have been purchased, You will receive a confirmation email shortly.')

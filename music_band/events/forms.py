@@ -38,5 +38,6 @@ class SaleForm(forms.ModelForm):
         model = Sale
         fields = ['name_on_card', 'email', 'card_number', 'code', 'expiry_date']
         widgets = {
-            'event': forms.HiddenInput()
+            'event': forms.HiddenInput(),
+            'expiry_date': forms.DateTimeInput(attrs={'type': 'date'}),
         }
