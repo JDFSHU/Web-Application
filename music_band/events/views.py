@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404 
-from .models import Event, Review
+from .models import Event, Review, Sale
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView # For the Content Management System (CMS)
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin # For the Content Management System (CMS)
-from .forms import ContactForm, ReviewForm, EventForm 
+from .forms import ContactForm, ReviewForm, EventForm, SaleForm 
 from django.contrib.auth.models import User
 from django.core.mail import send_mail # For the Contact Us form
 from django.conf import settings # For the Contact Us form
 from django.contrib import messages # For the Content Management System (CMS)
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
+from django.views.generic import FormView
 
 
 # These views map to the paths in the events app urls.py file
@@ -65,6 +67,33 @@ def not_admin(request): # This view is for the not_admin rights error page
 
 def not_author(request): # This view is for the not_author rights error page
     return render(request, 'events/not_author.html') # render the not_admin.html template when requested
+
+# This classed based view is for the buy tickets form which allows the user to purchase tickets for an specific event
+class BuyTicketsView(FormView):
+    model = Sale
+    template_name = 'events/buy_tickets.html'
+    form_class = SaleForm
+    success_url = '/events/'
+
+    def form_valid(self, form):
+        form.instance.event = Event.objects.get(pk=self.kwargs['pk'])
+        form.instance.user = self.request.user
+        form.save()
+        email = form.instance.email # gets the email from the form
+        messages.success(self.request, 'Your tickets have been purchased, You will receive a confirmation email shortly.')
+        # sends an email to the user with a message saying the tickets will be sent seperately soon
+        send_mail(
+                'Your Tickets will be on the way soon!',
+                'Thank you for your purchase, your requested purchase will be on the way to your email address soon.',
+                settings.EMAIL_HOST_USER,
+                [email],
+                fail_silently=False,
+            )
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return self.success_url
+
 
 
 # Start of ADMIN Content Management System (CMS) views to add/update/delete Events

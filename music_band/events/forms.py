@@ -1,7 +1,9 @@
 from django.forms import ModelForm
 from django import forms
-from .models import ContactFormData, Review, Event
+from .models import ContactFormData, Review, Event, Sale
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.conf import settings
+
 
 
 class ContactForm(forms.ModelForm):
@@ -29,4 +31,12 @@ class ReviewForm(forms.ModelForm):
         model = Review
         fields = ['event', 'event_rating', 'content']
 
-        
+
+class SaleForm(forms.ModelForm):
+
+    class Meta:
+        model = Sale
+        fields = ['name_on_card', 'email', 'card_number', 'code', 'expiry_date']
+        widgets = {
+            'event': forms.HiddenInput()
+        }

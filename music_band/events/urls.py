@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import EventsListView, EventsDetailView, EventsCreateView, EventsUpdateView, EventsDeleteView
 from .views import ReviewListView, ReviewDetailView, ReviewCreateView, ReviewUpdateView, ReviewDeleteView
-from .views import UserReviewListView
+from .views import UserReviewListView, BuyTicketsView
 from . import views # import views.py file from the same directory
 
 # Create a list of paths which map to the views in views.py
@@ -13,6 +13,7 @@ urlpatterns = [
     path('events/new/', EventsCreateView.as_view(), name='event-create'), # 'events/new/' maps to the event create page
     path('events/<int:pk>/update/', EventsUpdateView.as_view(), name='event-update'), # 'events/<int:pk>/update/' maps to the event update page
     path('events/<int:pk>/delete/', EventsDeleteView.as_view(), name='event-delete'), # 'events/<int:pk>/delete/' maps to the event delete page
+    path('events/<int:pk>/buy_tickets/', BuyTicketsView.as_view(), name='buy-tickets'), # 'events/buy_tickets/' maps to the buy tickets page
     
     path('reviews/', ReviewListView.as_view(), name='events-reviews'), # 'reviews/' maps to the reviews page
     path('reviews/<int:pk>/', ReviewDetailView.as_view(), name='review-detail'),
