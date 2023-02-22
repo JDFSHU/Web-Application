@@ -12,6 +12,7 @@ class ContactForm(forms.ModelForm):
         model = ContactFormData
         fields = ['name', 'email', 'subject', 'message']
 
+# This form allows the admin to submit a new event to the database, the widgets are used to change the input type of the date field to a drop down box
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event

@@ -3,12 +3,8 @@
 {% block content %} <!--Start of unique content -->
     
     <div class="content-section">
-        <div class="media">
-            <img class="rounded-circle account-img" src="{{ user.profile.photo_of_user.url }}">
-            <div class="media-body">
-                <h2 class="account-heading">{{ user.username }}</h2>
-                <p class="text-secondary">{{ user.email }}</p>
-            </div>
+        <div class="profile-pic">
+            <img class="account-img" src="{{ user.profile.photo_of_user.url }}"> 
         </div>
         
         <div class="profile-form">

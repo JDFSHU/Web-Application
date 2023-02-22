@@ -7,7 +7,6 @@ from django.conf import settings
 
 @login_required #  login required decorator restricts access to the view to logged in users
 def profile(request):
-    
     if request.method == 'POST':
         # creates a form with the data from the current user and populates the fields with the data from the current user
         user_update_form = UserUpdateForm(request.POST, instance=request.user)

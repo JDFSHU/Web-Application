@@ -123,7 +123,7 @@ class EventsCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView): # L
 
 class EventsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView): # LoginRequiredMixin is used to prevent users from updating events without logging in
     model = Event # Tells the view which model to query
-    fields = ['photo', 'name', 'event_type', 'location', 'date', 'description'] # fields that will be displayed in the form
+    form_class = EventForm
 
     # checks to see if the user is admin or not, if not 403 forbidden error is returned
     def form_valid(self, form):

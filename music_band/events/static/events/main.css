@@ -52,6 +52,9 @@ ul {
 
 .banner-headline {
     color: #fffffe;
+    align-items: center;
+    display: inline-flex;
+    text-align: center;
 }
 
 .banner-paragraph {
@@ -127,6 +130,13 @@ ul {
     border-radius: 3px;
     margin-bottom: 20px;
     padding-bottom: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .content-section {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .article-title {
@@ -233,21 +243,33 @@ a.article-title:hover {
     color: #94a1b2;
 }
 
+.aboutus-container {
+    align-items: center;    
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .aboutus-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .staff-member {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
-    padding-left: 50px;
-    padding-top: 50px;
+    margin: 30px 30px;
 }
-
 
 .staff-member img {
     width: 200px; 
     height: 200px; 
     border-radius: 50%;
     margin-bottom: 20px;
+    align-items: center;
 }
 
 .staff-member h3 {
@@ -268,16 +290,15 @@ a.article-title:hover {
 }
 
 .value-box {
-    color: #7f5af0;
     background-color: #242629;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    width: 45%;
+
     margin: 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 320px) {
     .value-box {
     width: calc(50% - 40px);
     }
@@ -286,13 +307,28 @@ a.article-title:hover {
 /* About Us End */
 
 
+/* Profile Start */
+
+.profile-pic {
+
+    padding: 5px; /* Some padding */
+    width: 150px; /* Set a small width */
+}
+
+.profile-form {
+    justify-content: center;
+}
+
+/* Profile End */
+
+
 /* Events Page Start*/
 
 .event-container {
     padding-top: 50px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
     align-items: left;
 }
 
@@ -306,6 +342,11 @@ a.article-title:hover {
     box-shadow: 2px 2px 10px #94a1b2;
 }
 
+@media screen and (max-width: 768px) {
+    .event-card {
+        width:100%;
+    }
+}
 .event-card-title {
     font-size: 20px;
     margin-bottom: 10px;
@@ -397,10 +438,6 @@ a.article-title:hover {
     justify-content: center;
 }
 
-.profile-form {
-    padding-top: 50px;
-    justify-content: center;
-}
 /* Form End */
 
 
@@ -444,8 +481,14 @@ object-fit: cover;
     margin-top: 20px;
 }
 
+@media screen and (max-width: 320px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 .contact-info {
-    width: 40%;
     padding: 20px;
     text-align: center;
     padding-top: 100px;
