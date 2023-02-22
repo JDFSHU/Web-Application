@@ -5,6 +5,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.conf import settings
 
 
+# Each of these custom forms are used for a user to submit data to the database to the relevant models
 
 class ContactForm(forms.ModelForm):
     class Meta:
@@ -33,7 +34,6 @@ class ReviewForm(forms.ModelForm):
 
 
 class SaleForm(forms.ModelForm):
-
     class Meta:
         model = Sale
         fields = ['name_on_card', 'email', 'card_number', 'code', 'expiry_date']

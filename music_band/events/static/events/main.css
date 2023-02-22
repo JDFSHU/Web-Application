@@ -178,7 +178,8 @@ a.article-title:hover {
 
 /* Navbar End */
 
-/* footer Start */
+
+/* Footer Start */
 .footer {
     clear: both;
     position: relative;
@@ -194,7 +195,8 @@ a.article-title:hover {
 .bottom-page {
     padding-top:100px;
 }
-/* footer End */
+/* Footer End */
+
 
 /* About Us Start */
 
@@ -283,7 +285,8 @@ a.article-title:hover {
 
 /* About Us End */
 
-/* Events Page start*/
+
+/* Events Page Start*/
 
 .event-container {
     padding-top: 50px;
@@ -356,9 +359,10 @@ a.article-title:hover {
     margin: 0 auto;
 }
 
-/* Events Page end */
+/* Events Page End */
 
-/* Events detail page Start */
+
+/* Events Detail Page Start */
 
 .review-button {
     margin-top: 40px;
@@ -367,8 +371,8 @@ a.article-title:hover {
 
 }
 
+/* Events Detail Page End */
 
-/* Events detail page End */
 
 /* Form Start */
 
@@ -398,6 +402,7 @@ a.article-title:hover {
     justify-content: center;
 }
 /* Form End */
+
 
 /* Contact Us Start */
 
@@ -432,8 +437,6 @@ object-fit: cover;
     font-size: 36px;
 }
 
-
-
 .contact-container {
     background-color: #242629;
     display: flex;
@@ -448,7 +451,6 @@ object-fit: cover;
     padding-top: 100px;
 
 }
-    
 
 .map-container{
     width: 60%;
@@ -457,6 +459,8 @@ object-fit: cover;
 
 /* Contact Us End */
 
+
+/* Pagination Start */
 
 .pagination-button {
     background-color: #242629; 
@@ -496,6 +500,9 @@ object-fit: cover;
     color: #fffffe;
 }
 
+/* Pagination End */
+
+
 
 /* Event Detail Start */
 
@@ -517,7 +524,5 @@ object-fit: cover;
     text-align: center;
     margin-top: 100px;
 }
-
-
 
 /* Event Detail End */

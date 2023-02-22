@@ -6,7 +6,7 @@ from PIL import Image
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE) # OneToOneField used to link the user model to the profile model, if user is deleted the profile will be deleted too
     full_name = models.CharField(max_length=100, default='')
-    dob = models.DateField(null=True, blank=True)
+    dob = models.DateField(null=True)
     city_town = models.CharField(max_length=100, default='')
     country = models.CharField(max_length=100, default='')
     photo_of_user = models.ImageField(default='default.jpg', upload_to='profile_pics') # uploads to /media/profile_pics or uses default.jpg if no image is uploaded

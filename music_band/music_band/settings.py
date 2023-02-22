@@ -141,7 +141,7 @@ EMAIL_HOST = 'smtp.gmail.com' # sets the email host to gmail
 EMAIL_PORT = 587 # sets the email port to 587
 EMAIL_USE_TLS = True # sets the email to use TLS
 
-# below code will need changing for the showcase as won't be able to use environment variables on university computers
+# The below code will be different for the showcase as won't be able to use environment variables on university computers
 EMAIL_HOST_USER = os.environ.get('email_host') # sets the email host user to the email address by getting the email address from the environment variables
 EMAIL_HOST_PASSWORD = os.environ.get('email_pass') # sets the email host password to the email password by getting the email password from the environment variables
 

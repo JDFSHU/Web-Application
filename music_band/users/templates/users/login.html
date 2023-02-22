@@ -1,5 +1,5 @@
 {% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
-{% load crispy_forms_tags %}
+{% load crispy_forms_tags %} <!--Loads crispy forms to style forms -->
 {% block content %} <!--Start of unique content -->
 
     <div class="content-section">
@@ -11,9 +11,11 @@
                 </fieldset>
             <div class="form-group">
                 <button type="submit" class="pagination-button">Login</button>
+                <a class="ml-2 pagination-button" href="{% url 'password_reset' %}">Password Reset</a>
+                
             </div>
             <div class="border-top pt-3">
-                <small class="text-muted">Don't have an account?<a class="ml-2 pagination-button" href="{% url 'register' %}">Sign Up Here</a></small> <!--Creates a link to the login page -->
+                <small class="text-muted">Don't have an account?<a class="ml-2 pagination-button" href="{% url 'register' %}">Sign Up Here</a></small> <!--Creates a link to the login page -->   
             </div>
         </form>
     </div>

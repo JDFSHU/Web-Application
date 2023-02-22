@@ -1,9 +1,10 @@
 {% extends "events/base.html" %}   <!--Extends the base.html file in the events folder to inherrit repeated code/html -->
-{% load rating_stars %}
+{% load rating_stars %}  <!-- Loads rating_stars.py to format stars -->
 {% block content %} <!--Start of unique content -->
+
     <h1 class="mb-3">Reviews from {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
 
-    {% for review in reviews %}
+    {% for review in reviews %} 
         <article class="media content-section">
             <div class="media-body">
                 <div class="article-metadata">

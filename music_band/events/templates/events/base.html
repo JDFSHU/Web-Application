@@ -2,21 +2,19 @@
 <!doctype html>
 <html lang="en">
 
-<!--All user passwords = %Pa55w0rd -->
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'events/main.css' %}">
-    <link rel="icon" type="image/x-icon" href="/media/icon/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/media/icon/favicon-16x16.png"> <!-- Favicon Included -->
 
-    <title>Music Band</title>
+    <title>Music Band</title> <!-- Title of the website, avoided using elaborate if statements and dictionaries to post different titles -->
 </head>
 
 <body>
-    <header class="site-header">
+    <header class="site-header"> <!-- Navbar Start -->
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
                 <a class="navbar-brand mr-4" href="{% url "events-home" %}">Music Band</a>
@@ -59,7 +57,7 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> <!-- Navbar End -->
     
     <main role="main" class="container">
         <!-- Displays messages -->
@@ -71,9 +69,9 @@
             {% endfor %}
         {% endif %}
         
-        <!-- Displays Unique Page Content -->
+        <!-- Start of Unique Page Content -->
         {% block content %}{% endblock %}
-
+        <!-- End of Unique Page Content -->
     </main>
 
     <div class="bottom-page"></div>
