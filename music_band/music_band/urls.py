@@ -11,11 +11,12 @@ urlpatterns = [
     path('', include('events.urls')), # '' Maps the home page of the site to the events app
     path('admin/', admin.site.urls), # Admin Path
 
-    # Registration, Login, Logout and Profile Paths
+    # Registration, Login, Logout, delete_user and Profile Paths
     path('register/', user_views.register, name='register'), # maps the register page to the register view
     path('login/' , auth_views.LoginView.as_view(template_name='users/login.html'), name='login'), # maps the login page to the login view
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'), # maps the logout page to the logout view
     path('profile/', user_views.profile, name='profile'), # maps the profile page to the profile view
+    path('delete_user/', user_views.delete_user, name='delete'), # maps the delete_user page to the delete_user view
 
 
     # Password Reset Functionality Paths

@@ -51,3 +51,11 @@ def register(request):
         form = RegistrationForm() # create a blank form
     return render(request, 'users/register.html', {'form': form})
 
+
+@login_required
+def delete_user(request):
+    if request.method == 'POST':
+        request.user.delete()
+        messages.success(request, f'Account Deleted!') # displays a success message to the user using the messages module
+        return redirect('register') # redirects the user to the register page
+    return render(request, 'users/user_confirm_delete.html')
