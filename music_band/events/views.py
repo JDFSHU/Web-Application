@@ -74,6 +74,9 @@ def not_admin(request): # This view is for the not_admin rights error page
 def not_author(request): # This view is for the not_author rights error page
     return render(request, 'events/not_author.html') # render the not_admin.html template when requested
 
+def readme(request):
+    return render(request, 'events/readme.html') # renders the readme.html template
+
 
 # This classed based view is for the buy tickets form which allows the user to purchase tickets for an specific event
 class BuyTicketsView(FormView):

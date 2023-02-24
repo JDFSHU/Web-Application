@@ -38,5 +38,8 @@ urlpatterns = [
 
     # 403 Error Paths
     path('not_admin/', views.not_admin, name='not-admin'),
-    path('not_author/', views.not_author, name='not-author')
+    path('not_author/', views.not_author, name='not-author'),
+
+    # Readme Path
+    path('readme/', views.readme, name='readme')
 ]
