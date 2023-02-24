@@ -14,7 +14,9 @@ from django.views.generic import FormView
 
 # These views map to the paths in the events app urls.py file
 def home(request):
-    return render(request, 'events/home.html') # render the home.html template when requested
+    random_event = Event.objects.order_by('?').first() # This line of code is used to get a random event from the events model
+    return render(request, 'events/home.html',  {'random_event': random_event}) # render the home.html template when requested with a random event from the events model
+
 
 def events(request):
     context = {
@@ -29,8 +31,10 @@ def reviews(request):
 def about(request):
     return render(request, 'events/about.html') # render the about.html template when requested
 
+
 def contact(request):
     return render(request, 'events/contact.html') # render the contact.html template when requested
+
 
 def upload(request): # This view is used to upload contact us form data to the database and sends an email to the admin
     if request.method == 'POST':
@@ -47,6 +51,7 @@ def upload(request): # This view is used to upload contact us form data to the d
             )
         return redirect('events-home')
     return render(request, 'events/contact_form.html', {'form' : ContactForm})
+
 
 # This view is used to request the search_events template and return the search results
 def search_events(request):
@@ -65,8 +70,10 @@ def search_events(request):
 def not_admin(request): # This view is for the not_admin rights error page
     return render(request, 'events/not_admin.html') # render the not_admin.html template when requested
 
+
 def not_author(request): # This view is for the not_author rights error page
     return render(request, 'events/not_author.html') # render the not_admin.html template when requested
+
 
 # This classed based view is for the buy tickets form which allows the user to purchase tickets for an specific event
 class BuyTicketsView(FormView):
@@ -102,6 +109,7 @@ class EventsListView(ListView): # This view is used to display all the events in
     template_name = 'events/events.html' # <app>/<model>_<viewtype>.html
     context_object_name = 'events' # name of the object list that will be used in the template
 
+
 class EventsDetailView(DetailView): # This view is used to display the details of a single event
     model = Event # Tells the view which model to query
 
@@ -119,7 +127,6 @@ class EventsCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView): # L
     def handle_no_permission(self): # redirects to the not_admin page if the test_func returns false
         return redirect('not-admin')
     
-
 
 class EventsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView): # LoginRequiredMixin is used to prevent users from updating events without logging in
     model = Event # Tells the view which model to query
@@ -156,6 +163,8 @@ class EventsDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 # End of ADMIN Content Management System (CMS) views to add/update/delete Events
 
+
+
 # Start of USER Content Management System (CMS) views to add/update/delete Reviews
 
 class ReviewListView(ListView): # This view is used to display all the reviews in the database
@@ -164,6 +173,7 @@ class ReviewListView(ListView): # This view is used to display all the reviews i
     context_object_name = 'reviews' # name of the object list that will be used in the template
     ordering = ['-date_posted'] # orders the reviews by date posted
     paginate_by = 5 # number of reviews to display per page
+
 
 class UserReviewListView(ListView): # This view is used to display all the reviews in the database
     model = Review # Tells the view which model to query
@@ -179,6 +189,7 @@ class UserReviewListView(ListView): # This view is used to display all the revie
 class ReviewDetailView(DetailView): # This view is used to display the details of a single review
     model = Review # Tells the view which model to query
 
+
 class ReviewCreateView(LoginRequiredMixin, CreateView):
     model = Review # Tells the view which model to query
     form_class = ReviewForm # Tells the view which custom form to use (allows min/max rating of 1-5)
@@ -186,6 +197,7 @@ class ReviewCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form): # sets the author to the current logged in user upon creating a new review
         form.instance.author = self.request.user
         return super().form_valid(form)
+
 
 class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Review # Tells the view which model to query
@@ -205,6 +217,7 @@ class ReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     
     def handle_no_permission(self): # redirects to the not_author page if the test_func returns false
         return redirect('not-author')
+
 
 class ReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Review # Tells the view which model to query

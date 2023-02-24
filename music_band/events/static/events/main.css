@@ -46,8 +46,8 @@ ul {
 
 .banner-content {
     text-align: center;
-    padding-top: 10%;
-    margin-bottom: 40px;
+    padding-top: 80px;
+    margin-bottom: 80px;
 }
 
 .banner-headline {
@@ -100,6 +100,20 @@ ul {
     padding: 20px;
     text-align: center;
     padding-top: 150px;
+}
+
+.random-event-container {
+    background-color: #242629;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 320px) {
+    .random-event-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 /* Home Page End */
@@ -400,19 +414,45 @@ a.article-title:hover {
     margin: 0 auto;
 }
 
+#demo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #94a1b2;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
 /* Events Page End */
 
 
-/* Events Detail Page Start */
+/* Events Detail Start */
 
 .review-button {
     margin-top: 40px;
     margin-bottom: 40px;
-
-
 }
 
-/* Events Detail Page End */
+.event-detail-title {
+    color: #7f5af0;
+}
+
+.event-detail {
+    background-color: #242629;
+    align-items: left;
+    
+}
+
+.review-content {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+/* Events Detail End */
 
 
 /* Form Start */
@@ -500,6 +540,35 @@ object-fit: cover;
     height: 450px;
 }
 
+.social-media-container {
+    background-color: #242629;
+    justify-content: space-between;
+    margin-top: 20px;
+    align-items: center;
+    padding-top: -200px;
+}
+.social-media-contact-info {
+    padding: 20px;
+    text-align: center;
+    padding-top: 25px;
+}
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 25px;
+    padding-top: 10px;
+}
+
+.social-media a {
+    display: block;
+    margin: 0 10px;
+}
+
+.social-media a img {
+    width: 40px;
+    height: 40px;
+}
 /* Contact Us End */
 
 
@@ -545,27 +614,3 @@ object-fit: cover;
 
 /* Pagination End */
 
-
-
-/* Event Detail Start */
-
-.event-detail-title {
-    color: #7f5af0;
-}
-
-.event-detail {
-    background-color: #242629;
-    align-items: left;
-    
-}
-
-.review-content {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-    text-align: center;
-    margin-top: 100px;
-}
-
-/* Event Detail End */

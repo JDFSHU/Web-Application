@@ -52,7 +52,7 @@ class ContactFormData(models.Model):
 
 # This function is used to validate the card code the user provides, it must be 3 digits long, otherwise it will raise a validation error
 def validate_card_code(code):
-    if len(str(code)) != 3:
+    if len("{:03d}".format(code)) != 3: # this line of code is used to format the code to 3 digits long AND accept a code with digits that begin with 0
         raise ValidationError('Code must be 3 digits long')
 
 # This function is used to validate the card number the user provides, it must be 16 digits long, otherwise it will raise a validation error   

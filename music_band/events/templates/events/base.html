@@ -17,7 +17,11 @@
     <header class="site-header"> <!-- Navbar Start -->
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
-                <a class="navbar-brand mr-4" href="{% url "events-home" %}">Music Band</a>
+                {% if user.username == 'admin' %}  <!-- If user is logged in and is admin, redirects to admin page -->
+                    <a class="navbar-brand mr-4" href="/admin">Music Band</a> <!-- If user is logged in and is admin, redirects to admin page -->
+                {% else %} <!-- If user is not is not admin, redirects to home page -->
+                    <a class="navbar-brand mr-4" href="{% url "events-home" %}">Music Band</a>  <!-- If user is not is not admin, redirects to home page -->
+                {% endif %}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
